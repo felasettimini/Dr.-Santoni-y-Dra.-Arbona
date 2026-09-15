@@ -1,6 +1,7 @@
 <!doctype html>
 <title>Santoni Arbona Odontología</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -77,23 +78,44 @@
   .eyebrow::before{content:""; width:22px; height:2px; background:var(--terracotta); display:inline-block; border-radius:2px;}
 
   /* ---------- Nav ---------- */
-  header{padding-block:22px;}
+  header{padding-block:22px; position:relative;}
   nav.wrap{display:flex; align-items:center; justify-content:space-between; gap:20px;}
-  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none; min-width:0;}
   .brand-badge{
     width:44px; height:44px; border-radius:12px; background:#fff; padding:5px;
     box-shadow:var(--shadow); flex-shrink:0;
   }
   .brand-badge img{width:100%; height:100%; object-fit:contain; border-radius:7px;}
   .brand-text{line-height:1.15;}
-  .brand-text strong{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; display:block; color:var(--ink);}
+  .brand-text strong{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; display:block; color:var(--ink); white-space:nowrap;}
   .brand-text span{font-size:0.72rem; color:var(--ink-soft); letter-spacing:0.04em;}
-  .nav-links{display:flex; align-items:center; gap:30px; font-size:0.92rem; font-weight:600;}
+  .nav-links{display:none; align-items:center; gap:30px; font-size:0.92rem; font-weight:600;}
   .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
   .nav-links a:hover{color:var(--terracotta);}
   .nav-links a:focus-visible, .btn:focus-visible, a:focus-visible{outline:2px solid var(--terracotta); outline-offset:3px; border-radius:4px;}
   .nav-cta{display:none;}
-  @media (min-width:860px){ .nav-cta{display:inline-flex;} }
+  .nav-toggle{
+    display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0;
+    border-radius:10px; border:1.5px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; padding:0;
+  }
+  .nav-toggle svg{width:20px; height:20px;}
+  @media (min-width:860px){
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-flex;}
+    .nav-toggle{display:none;}
+  }
+  .mobile-menu{
+    display:none; position:absolute; top:100%; left:0; right:0; z-index:30;
+    background:var(--surface); border-bottom:1px solid var(--line); box-shadow:var(--shadow);
+    padding:8px 24px 22px;
+  }
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{
+    display:block; padding:13px 0; font-weight:600; color:var(--ink); text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu .btn{width:100%; justify-content:center; margin-top:16px;}
+  @media (min-width:860px){ .mobile-menu{display:none !important;} }
 
   .btn{
     display:inline-flex; align-items:center; gap:9px; text-decoration:none;
@@ -294,7 +316,20 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
       WhatsApp
     </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#consultorio">Consultorio</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-primary" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
+      Escribinos por WhatsApp
+    </a>
+  </div>
 </header>
 
 <main id="top">
@@ -495,3 +530,18 @@
 <a class="float-wa" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
 </a>
+
+<script>
+  var navToggle = document.getElementById('navToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
