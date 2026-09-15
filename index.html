@@ -139,7 +139,7 @@
   .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px;}
 
   .hero-art{position:relative; aspect-ratio:4/4.7; max-width:420px; margin-inline:auto;}
-  .quad{position:absolute; inset:-22px 18px 18px -22px; border-radius:28px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; z-index:0;}
+  .quad{position:absolute; inset:-20px; border-radius:28px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; z-index:0;}
   @media (max-width:520px){ .quad{inset:-14px;} }
   .quad span{display:block;}
   .quad span:nth-child(1){background:var(--yellow);}
@@ -168,19 +168,19 @@
   .section-head p{margin-top:14px; font-size:1.02rem;}
 
   /* ---------- Nosotros ---------- */
-  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center;}
-  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
-  .about-photo{position:relative;}
-  .about-photo img{border-radius:24px; box-shadow:var(--shadow); width:100%; object-fit:cover; aspect-ratio:3/3.9;}
-  .about-chip{
-    position:absolute; bottom:-22px; left:-22px; background:var(--surface); border:1px solid var(--line);
-    border-radius:16px; padding:14px 18px; box-shadow:var(--shadow); font-size:0.82rem; font-weight:700;
-    display:flex; align-items:center; gap:10px; max-width:220px;
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; column-gap:60px; row-gap:14px;
+    grid-template-areas:"photo intro" "photo details"; align-items:center;
   }
-  @media (max-width:520px){ .about-chip{position:static; margin-top:16px; max-width:none;} }
-  .about-chip .dot{width:10px; height:10px; border-radius:50%; background:var(--terracotta); flex-shrink:0;}
-  .about-body p{font-size:1.02rem; margin-top:16px;}
-  .about-body p:first-of-type{margin-top:14px;}
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr; grid-template-areas:"intro" "photo" "details"; row-gap:28px;}
+  }
+  .about-intro{grid-area:intro; align-self:end;}
+  .about-photo{grid-area:photo;}
+  .about-details{grid-area:details; align-self:start;}
+  .about-photo img{border-radius:24px; box-shadow:var(--shadow); width:100%; object-fit:cover; aspect-ratio:3/3.9;}
+  .about-details p{font-size:1.02rem; margin-top:16px;}
+  .about-details p:first-of-type{margin-top:0;}
   .about-names{display:flex; gap:26px; margin-top:30px; flex-wrap:wrap;}
   @media (max-width:480px){ .about-names{flex-direction:column; gap:16px;} }
   .about-name strong{display:block; font-family:'Fraunces', serif; font-size:1.08rem; color:var(--ink);}
@@ -379,13 +379,14 @@
 
   <section id="nosotros">
     <div class="wrap about-grid">
-      <div class="about-photo">
-        <img src="assets/equipo.png" alt="Dr. Santoni y Dra. Arbona">
-        <div class="about-chip"><span class="dot"></span>Un mismo criterio de cuidado</div>
-      </div>
-      <div class="about-body">
+      <div class="about-intro">
         <p class="eyebrow">Nuestro equipo</p>
         <h2>Un consultorio dirigido por quienes te atienden.</h2>
+      </div>
+      <div class="about-photo">
+        <img src="assets/equipo.png" alt="Dr. Santoni y Dra. Arbona">
+      </div>
+      <div class="about-details">
         <p>El Dr. Santoni y la Dra. Arbona llevan adelante el consultorio con un enfoque conservador: antes de proponer un tratamiento, evalúan tu caso, te muestran las opciones y arman un plan pensado para vos.</p>
         <p>Para los tratamientos de ortodoncia y ortopedia trabajan junto a la Dra. Bárbara Bertossi, sumando un criterio especializado a cada plan de alineación dentaria.</p>
         <div class="about-names">
