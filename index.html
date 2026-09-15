@@ -1,0 +1,494 @@
+<!doctype html>
+<title>Santoni Arbona Odontología</title>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF7F0;
+    --surface:#FFFFFF;
+    --surface-2:#F3EADB;
+    --ink:#2B241E;
+    --ink-soft:#7A6B5C;
+    --line:#E8DBC6;
+    --yellow:#F2D577;
+    --tan:#E3B98A;
+    --orange:#E2903F;
+    --terracotta:#C9502D;
+    --terracotta-ink:#8F3A1F;
+    --card-dark:#2A241F;
+    --card-dark-2:#332C25;
+    --on-dark:#F3EADB;
+    --on-dark-soft:#C4B39C;
+    --shadow: 0 20px 50px -25px rgba(43,36,30,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B1712;
+      --surface:#221D17;
+      --surface-2:#291F17;
+      --ink:#F1E7D8;
+      --ink-soft:#B9A78F;
+      --line:#3A2F24;
+      --card-dark:#15110D;
+      --card-dark-2:#1D1710;
+      --on-dark:#F1E7D8;
+      --on-dark-soft:#B9A78F;
+      --shadow: 0 20px 50px -25px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B1712;
+    --surface:#221D17;
+    --surface-2:#291F17;
+    --ink:#F1E7D8;
+    --ink-soft:#B9A78F;
+    --line:#3A2F24;
+    --card-dark:#15110D;
+    --card-dark-2:#1D1710;
+    --on-dark:#F1E7D8;
+    --on-dark-soft:#B9A78F;
+    --shadow: 0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope', system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding-inline:24px;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1160px; margin-inline:auto;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; font-weight:600; letter-spacing:-0.01em; text-wrap:balance; margin:0;}
+  p{margin:0; line-height:1.65; color:var(--ink-soft);}
+  .eyebrow{
+    font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--terracotta); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--terracotta); display:inline-block; border-radius:2px;}
+
+  /* ---------- Nav ---------- */
+  header{padding-block:22px;}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand-badge{
+    width:44px; height:44px; border-radius:12px; background:#fff; padding:5px;
+    box-shadow:var(--shadow); flex-shrink:0;
+  }
+  .brand-badge img{width:100%; height:100%; object-fit:contain; border-radius:7px;}
+  .brand-text{line-height:1.15;}
+  .brand-text strong{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; display:block; color:var(--ink);}
+  .brand-text span{font-size:0.72rem; color:var(--ink-soft); letter-spacing:0.04em;}
+  .nav-links{display:flex; align-items:center; gap:30px; font-size:0.92rem; font-weight:600;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .nav-links a:hover{color:var(--terracotta);}
+  .nav-links a:focus-visible, .btn:focus-visible, a:focus-visible{outline:2px solid var(--terracotta); outline-offset:3px; border-radius:4px;}
+  .nav-cta{display:none;}
+  @media (min-width:860px){ .nav-cta{display:inline-flex;} }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; text-decoration:none;
+    font-weight:700; font-size:0.92rem; padding:13px 24px; border-radius:99px;
+    transition:transform .15s ease, box-shadow .15s ease; white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--terracotta); color:#fff; box-shadow:0 14px 28px -14px rgba(201,80,45,0.65);}
+  .btn-primary:hover{box-shadow:0 18px 32px -12px rgba(201,80,45,0.75);}
+  .btn-ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--terracotta); color:var(--terracotta);}
+  .btn svg{width:18px; height:18px; flex-shrink:0;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-block:32px 76px;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr; gap:44px;} }
+  .hero h1{font-size:clamp(2.1rem, 4.6vw, 3.35rem); line-height:1.08;}
+  .hero-copy p.lead{font-size:1.08rem; margin-top:20px; max-width:46ch;}
+  .hero-copy .eyebrow{margin-bottom:16px;}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px;}
+
+  .hero-art{position:relative; aspect-ratio:4/4.7; max-width:420px; margin-inline:auto;}
+  .quad{position:absolute; inset:-22px 18px 18px -22px; border-radius:28px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; z-index:0;}
+  .quad span{display:block;}
+  .quad span:nth-child(1){background:var(--yellow);}
+  .quad span:nth-child(2){background:var(--tan);}
+  .quad span:nth-child(3){background:var(--orange);}
+  .quad span:nth-child(4){background:var(--terracotta);}
+  .hero-photo{
+    position:relative; z-index:1; width:100%; height:100%; border-radius:28px; overflow:hidden;
+    box-shadow:var(--shadow); border:6px solid var(--surface);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+
+  /* ---------- Trust strip ---------- */
+  .trust{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding-block:30px;}
+  .trust-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:720px){ .trust-grid{grid-template-columns:1fr; gap:22px;} }
+  .trust-item{display:flex; gap:14px; align-items:flex-start;}
+  .trust-item svg{width:26px; height:26px; flex-shrink:0; color:var(--terracotta); margin-top:2px;}
+  .trust-item strong{display:block; font-family:'Fraunces', serif; font-weight:600; font-size:1.03rem; color:var(--ink); margin-bottom:3px;}
+  .trust-item p{font-size:0.9rem;}
+
+  /* ---------- Section shell ---------- */
+  section{padding-block:88px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.35rem); margin-top:14px;}
+  .section-head p{margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- Nosotros ---------- */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-photo{position:relative;}
+  .about-photo img{border-radius:24px; box-shadow:var(--shadow); width:100%; object-fit:cover; aspect-ratio:3/3.9;}
+  .about-chip{
+    position:absolute; bottom:-22px; left:-22px; background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:14px 18px; box-shadow:var(--shadow); font-size:0.82rem; font-weight:700;
+    display:flex; align-items:center; gap:10px; max-width:220px;
+  }
+  @media (max-width:520px){ .about-chip{position:static; margin-top:16px; max-width:none;} }
+  .about-chip .dot{width:10px; height:10px; border-radius:50%; background:var(--terracotta); flex-shrink:0;}
+  .about-body p{font-size:1.02rem; margin-top:16px;}
+  .about-body p:first-of-type{margin-top:14px;}
+  .about-names{display:flex; gap:26px; margin-top:30px; flex-wrap:wrap;}
+  .about-name strong{display:block; font-family:'Fraunces', serif; font-size:1.08rem; color:var(--ink);}
+  .about-name span{font-size:0.82rem; color:var(--ink-soft);}
+
+  /* ---------- Servicios ---------- */
+  .services{background:var(--surface-2);}
+  .service-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:22px;}
+  .service-card{
+    background:var(--card-dark); color:var(--on-dark); border-radius:22px; padding:30px 28px;
+    display:flex; flex-direction:column; gap:16px; box-shadow:var(--shadow);
+    transition:transform .18s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);}
+  .service-icon{
+    width:48px; height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center;
+    background:var(--card-dark-2);
+  }
+  .service-icon svg{width:24px; height:24px; color:var(--orange);}
+  .service-card h3{font-size:1.12rem; color:var(--on-dark); font-weight:600;}
+  .service-card .credit{font-size:0.78rem; font-weight:700; color:var(--tan); text-transform:uppercase; letter-spacing:0.04em;}
+  .service-card p{color:var(--on-dark-soft); font-size:0.95rem;}
+  .service-card p strong{color:var(--on-dark); font-weight:700;}
+
+  /* ---------- Consultorio / gallery ---------- */
+  .gallery-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:20px;}
+  @media (max-width:720px){ .gallery-grid{grid-template-columns:1fr;} }
+  .gallery-grid img{border-radius:22px; box-shadow:var(--shadow); width:100%; height:100%; object-fit:cover;}
+  .gallery-grid .g1{aspect-ratio:4/3.2;}
+  .gallery-grid .g2{aspect-ratio:4/5.2;}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--card-dark); color:var(--on-dark); border-radius:32px; padding:64px 48px;
+    position:relative; overflow:hidden;
+  }
+  @media (max-width:640px){ .cta-band{padding:44px 26px;} }
+  .cta-band::before{
+    content:""; position:absolute; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, var(--terracotta) 0%, transparent 70%);
+    top:-140px; right:-100px; opacity:0.55;
+  }
+  .cta-band::after{
+    content:""; position:absolute; width:260px; height:260px; border-radius:50%;
+    background:radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+    bottom:-120px; left:-80px; opacity:0.3;
+  }
+  .cta-inner{position:relative; z-index:1; max-width:640px;}
+  .cta-band .eyebrow{color:var(--tan);}
+  .cta-band .eyebrow::before{background:var(--tan);}
+  .cta-band h2{color:var(--on-dark); font-size:clamp(1.7rem, 3.4vw, 2.5rem); margin-top:14px;}
+  .cta-band p{color:var(--on-dark-soft); margin-top:16px; font-size:1.03rem; max-width:52ch;}
+  .cta-band .hero-ctas{margin-top:30px;}
+  .cta-note{
+    margin-top:26px; padding-top:22px; border-top:1px solid rgba(241,231,216,0.15);
+    font-size:0.86rem; color:var(--on-dark-soft); display:flex; gap:10px; align-items:flex-start; max-width:52ch;
+  }
+  .cta-note svg{width:18px; height:18px; flex-shrink:0; margin-top:1px; color:var(--tan);}
+
+  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:24px; align-items:stretch;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-grid .cta-band{margin:0;}
+  .map-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:32px; padding:28px;
+    display:flex; flex-direction:column; gap:18px; box-shadow:var(--shadow);
+  }
+  .map-frame{
+    border-radius:20px; overflow:hidden; border:1px solid var(--line); flex:1; min-height:220px;
+    position:relative; display:block; text-decoration:none;
+    background-color:var(--surface-2);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+    transition:filter .15s ease;
+  }
+  .map-frame:hover{filter:brightness(0.97);}
+  .map-frame::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 30% 70%, color-mix(in srgb, var(--yellow) 45%, transparent) 0%, transparent 45%),
+      radial-gradient(circle at 75% 30%, color-mix(in srgb, var(--tan) 45%, transparent) 0%, transparent 40%);
+  }
+  .map-pin{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-58%); z-index:1;
+    display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center;
+  }
+  .map-pin svg{width:40px; height:40px; color:var(--terracotta); filter:drop-shadow(0 8px 14px rgba(201,80,45,0.35));}
+  .map-pin span{
+    font-size:0.78rem; font-weight:700; color:var(--ink); background:var(--surface);
+    padding:5px 12px; border-radius:99px; border:1px solid var(--line);
+  }
+  .map-address{display:flex; gap:12px; align-items:flex-start;}
+  .map-address svg{width:22px; height:22px; flex-shrink:0; color:var(--terracotta); margin-top:2px;}
+  .map-address strong{display:block; font-family:'Fraunces', serif; font-weight:600; font-size:1.02rem; color:var(--ink);}
+  .map-address span{font-size:0.9rem; color:var(--ink-soft);}
+  .map-link{font-size:0.88rem; font-weight:700; color:var(--terracotta); text-decoration:none; display:inline-flex; align-items:center; gap:6px;}
+  .map-link:hover{text-decoration:underline;}
+  .map-link svg{width:15px; height:15px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding-block:48px 40px; border-top:1px solid var(--line); margin-top:20px;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .footer-links{display:flex; gap:24px; font-size:0.88rem; font-weight:600; flex-wrap:wrap;}
+  .footer-links a{text-decoration:none; color:var(--ink-soft);}
+  .footer-links a:hover{color:var(--terracotta);}
+  .footer-bottom{margin-top:28px; font-size:0.8rem; color:var(--ink-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-wa{
+    position:fixed; bottom:22px; right:22px; z-index:40; width:58px; height:58px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 14px 30px -10px rgba(0,0,0,0.4);
+    text-decoration:none; transition:transform .15s ease;
+  }
+  .float-wa:hover{transform:scale(1.07);}
+  .float-wa svg{width:28px; height:28px; color:#fff;}
+</style>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-badge"><img src="assets/logo.png" alt="Logo del consultorio"></span>
+      <span class="brand-text"><strong>Santoni · Arbona</strong><span>Odontología</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#consultorio">Consultorio</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
+      WhatsApp
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Consultorio odontológico</p>
+        <h1>Naturalidad, armonía y precisión en cada tratamiento.</h1>
+        <p class="lead">El Dr. Santoni y la Dra. Arbona diseñan un plan personalizado para tu boca: te explican cada paso, cuidan al máximo tu tejido dental y trabajan con tecnología digital de principio a fin.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
+            Consultar por WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="quad" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="hero-photo">
+          <img src="assets/consultorio-2.png" alt="Sillón y equipamiento del consultorio">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust wrap">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v14"/></svg>
+        <div><strong>Flujo digital completo</strong><p>Escaneo intraoral, diseño por computadora y fresado de alta precisión.</p></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
+        <div><strong>Materiales libres de metal</strong><p>Zirconia y disilicato de litio para un resultado natural y resistente.</p></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <div><strong>Planes a medida</strong><p>Cada tratamiento arranca con un estudio personalizado de tu caso.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="nosotros">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="assets/equipo.png" alt="Dr. Santoni y Dra. Arbona">
+        <div class="about-chip"><span class="dot"></span>Un mismo criterio de cuidado</div>
+      </div>
+      <div class="about-body">
+        <p class="eyebrow">Nuestro equipo</p>
+        <h2>Un consultorio dirigido por quienes te atienden.</h2>
+        <p>El Dr. Santoni y la Dra. Arbona llevan adelante el consultorio con un enfoque conservador: antes de proponer un tratamiento, evalúan tu caso, te muestran las opciones y arman un plan pensado para vos.</p>
+        <p>Para los tratamientos de ortodoncia y ortopedia trabajan junto a la Dra. Bárbara Bertossi, sumando un criterio especializado a cada plan de alineación dentaria.</p>
+        <div class="about-names">
+          <div class="about-name"><strong>Dr. Santoni</strong><span>Odontología general</span></div>
+          <div class="about-name"><strong>Dra. Arbona</strong><span>Odontología general</span></div>
+          <div class="about-name"><strong>Dra. Bertossi</strong><span>Ortodoncia y ortopedia</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Servicios</p>
+        <h2>Tratamientos pensados en conjunto</h2>
+        <p>De la estética a la función: cada servicio parte del mismo criterio, conservar al máximo tu tejido dental y lograr un resultado natural.</p>
+      </div>
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.8-7 11-7 11a2.2 2.2 0 0 1-4 0Z"/></svg>
+          </div>
+          <h3>Estética con resinas</h3>
+          <p>Corregimos fracturas, espacios entre dientes, desgastes y mejoramos la forma de las piezas mediante restauraciones estéticas que conservan al máximo el tejido dental.<br><strong>Naturalidad, armonía y precisión.</strong></p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c3 3 5 3 8 0s5-3 8 0M3 15c3 3 5 3 8 0s5-3 8 0"/></svg>
+          </div>
+          <h3>Ortodoncia y ortopedia</h3>
+          <p class="credit">Dra. Bárbara Bertossi</p>
+          <p>Una correcta alineación dentaria mejora la estética de la sonrisa, la función de la mordida, la higiene bucal y la salud a largo plazo. Se puede realizar en niños, adolescentes y adultos: nunca es tarde para empezar.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v3M5 8l2 2M19 8l-2 2M4 17h16M6 17c0-4 2.5-8 6-8s6 4 6 8"/></svg>
+          </div>
+          <h3>Blanqueamiento dental</h3>
+          <p>Blanqueamiento supervisado por profesionales para lograr resultados seguros y naturales. Actúa únicamente sobre el tejido dentario y no modifica el color de coronas, carillas o restauraciones existentes.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3-4 3 4 3-5 3 5 3-4 3 4-1.5 9h-15Z"/></svg>
+          </div>
+          <h3>Coronas (prótesis fija)</h3>
+          <p>Coronas de zirconia o disilicato de litio, libres de metal, para restaurar dientes e implantes con un resultado estético, natural y resistente, mediante un <strong>flujo digital completo</strong>: escaneo intraoral, diseño asistido y fresado de precisión.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M9 6h6M8 9h8l-1 5H9L8 9Z"/><path d="M10 14v6h4v-6"/></svg>
+          </div>
+          <h3>Implantes dentales</h3>
+          <p>Reemplazan piezas perdidas recuperando la función, la estética y la comodidad al hablar y comer. Cada tratamiento se planifica de manera personalizada, cuidando los tejidos. Recuperar un diente es también recuperar confianza.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="consultorio">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Instalaciones</p>
+        <h2>Un espacio pensado para tu comodidad</h2>
+        <p>Equipamiento moderno y un consultorio cuidado en cada detalle, para que la visita al dentista sea una buena experiencia.</p>
+      </div>
+      <div class="gallery-grid">
+        <img class="g1" src="assets/consultorio-1.png" alt="Vista general del consultorio">
+        <img class="g2" src="assets/consultorio-2.png" alt="Sillón odontológico">
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="cta-band">
+          <div class="cta-inner">
+            <p class="eyebrow">Contacto</p>
+            <h2>¿Empezamos con tu consulta?</h2>
+            <p>Escribinos por WhatsApp y coordinamos tu primer turno. Te contamos el plan de tratamiento antes de empezar, sin sorpresas.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
+                Escribinos por WhatsApp
+              </a>
+            </div>
+            <div class="cta-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+              <span>Próximamente vas a poder reservar tu turno online, directamente desde esta página.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <div class="map-address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <div>
+              <strong>Pascual Rosas 1246</strong>
+              <span>S2002 Rosario, Santa Fe, Argentina</span>
+            </div>
+          </div>
+          <a class="map-frame" href="https://maps.app.goo.gl/7yDTXH2mu8e8kB5QA?g_st=iw" target="_blank" rel="noopener" aria-label="Abrir ubicación en Google Maps">
+            <div class="map-pin">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
+              <span>Pascual Rosas 1246, Rosario</span>
+            </div>
+          </a>
+          <a class="map-link" href="https://maps.app.goo.gl/7yDTXH2mu8e8kB5QA?g_st=iw" target="_blank" rel="noopener">
+            Ver en Google Maps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <a class="brand" href="#top">
+        <span class="brand-badge"><img src="assets/logo.png" alt="Logo del consultorio"></span>
+        <span class="brand-text"><strong>Santoni · Arbona</strong><span>Odontología</span></span>
+      </a>
+      <div class="footer-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#consultorio">Consultorio</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Santoni · Arbona Odontología</span>
+      <span>Sitio de demostración</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5493416894269?text=Hola%2C%20quisiera%20consultar%20un%20turno" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.36a9.9 9.9 0 0 0 4.64 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.66-.78-3.08-1.27-5.06-4.4-5.21-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.23 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.28.1 1.76.83 2.06.98.3.15.5.23.57.35.08.13.08.75-.17 1.44Z"/></svg>
+</a>
