@@ -93,7 +93,7 @@
   .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
   .nav-links a:hover{color:var(--terracotta);}
   .nav-links a:focus-visible, .btn:focus-visible, a:focus-visible{outline:2px solid var(--terracotta); outline-offset:3px; border-radius:4px;}
-  .nav-cta{display:none;}
+  a.btn.nav-cta{display:none;}
   .nav-toggle{
     display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0;
     border-radius:10px; border:1.5px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; padding:0;
@@ -101,7 +101,7 @@
   .nav-toggle svg{width:20px; height:20px;}
   @media (min-width:860px){
     .nav-links{display:flex;}
-    .nav-cta{display:inline-flex;}
+    a.btn.nav-cta{display:inline-flex;}
     .nav-toggle{display:none;}
   }
   .mobile-menu{
