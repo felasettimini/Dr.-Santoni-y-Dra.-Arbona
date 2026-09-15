@@ -164,21 +164,24 @@
 
   /* ---------- Servicios ---------- */
   .services{background:var(--surface-2);}
-  .service-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:22px;}
+  .service-grid{display:grid; grid-template-columns:repeat(5, 1fr); gap:18px;}
+  @media (max-width:1080px){ .service-grid{grid-template-columns:repeat(3, 1fr);} }
+  @media (max-width:720px){ .service-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:520px){ .service-grid{grid-template-columns:1fr;} }
   .service-card{
-    background:var(--card-dark); color:var(--on-dark); border-radius:22px; padding:30px 28px;
-    display:flex; flex-direction:column; gap:16px; box-shadow:var(--shadow);
+    background:var(--card-dark); color:var(--on-dark); border-radius:20px; padding:24px 20px;
+    display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow);
     transition:transform .18s ease;
   }
   .service-card:hover{transform:translateY(-4px);}
   .service-icon{
-    width:48px; height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center;
+    width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
     background:var(--card-dark-2);
   }
-  .service-icon svg{width:24px; height:24px; color:var(--orange);}
-  .service-card h3{font-size:1.12rem; color:var(--on-dark); font-weight:600;}
-  .service-card .credit{font-size:0.78rem; font-weight:700; color:var(--tan); text-transform:uppercase; letter-spacing:0.04em;}
-  .service-card p{color:var(--on-dark-soft); font-size:0.95rem;}
+  .service-icon svg{width:21px; height:21px; color:var(--orange);}
+  .service-card h3{font-size:1.02rem; color:var(--on-dark); font-weight:600; line-height:1.25;}
+  .service-card .credit{font-size:0.72rem; font-weight:700; color:var(--tan); text-transform:uppercase; letter-spacing:0.04em;}
+  .service-card p{color:var(--on-dark-soft); font-size:0.87rem;}
   .service-card p strong{color:var(--on-dark); font-weight:700;}
 
   /* ---------- Consultorio / gallery ---------- */
